@@ -11,14 +11,8 @@ void Clear(T** arr, const int m);
 
 template<typename T>void Random(T& variable);
 
-void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
-void FillRand(float arr[], const int n, int minRand = 0, int maxRand = 100);
-void FillRand(double arr[], const int n, int minRand = 0, int maxRand = 100);
-void FillRand(char arr[], const int n, int minRand = 0, int maxRand = 100);
-void FillRand(int** arr, const int m, const int n);
-void FillRand(double** arr, const int m, const int n);
-void FillRand(float** arr, const int m, const int n);
-void FillRand(char** arr, const int m, const int n);
+template<typename T>void FillRand(int arr[], const int n, int minRand = 0, int maxRand = 100);
+template<typename T>void FillRand(int** arr, const int m, const int n);
 
 template<typename T>void Print(T arr[], const int n);
 template<typename T>void Print(T** arr, const int m, const int n);
@@ -222,7 +216,7 @@ void Random(T& variable)
 	}
 }
 
-void FillRand(int arr[], const int n, int minRand, int maxRand)
+template<typename T>void FillRand(int arr[], const int n, int minRand, int maxRand)
 {
 	for (int i = 0; i < n; i++)
 	{
@@ -230,32 +224,8 @@ void FillRand(int arr[], const int n, int minRand, int maxRand)
 		Random(arr[i]);
 	}
 }
-void FillRand(float arr[], const int n, int minRand, int maxRand )
-{
-	for (int i = 0; i < n; i++)
-	{
-		//arr[i] = float(rand() % (maxRand - minRand) + minRand)/10;
-		Random(arr[i]);
-	}
-}
-void FillRand(double arr[], const int n, int minRand, int maxRand)
-{
-	for (int i = 0; i < n; i++)
-	{
-		//arr[i] = double(rand() % (maxRand - minRand) + minRand)/10;
-		Random(arr[i]);
-	}
-}
-void FillRand(char arr[], const int n, int minRand, int maxRand)
-{
-	for (int i = 0; i < n; i++)
-	{
-		//arr[i] = rand();
-		Random(arr[i]);
-	}
-}
 
-void FillRand(int** arr, const int m, const int n)
+template<typename T>void FillRand(int** arr, const int m, const int n)
 {
 	for (int i = 0; i < m; i++)
 	{
@@ -266,39 +236,7 @@ void FillRand(int** arr, const int m, const int n)
 		}
 	}
 }
-void FillRand(float** arr, const int m, const int n)
-{
-	for (int i = 0; i < m; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			//arr[i][j] = float(rand() % 100)/10;
-			Random(arr[i][j]);
-		}
-	}
-}
-void FillRand(double** arr, const int m, const int n)
-{
-	for (int i = 0; i < m; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			//arr[i][j] = double(rand() % 100)/10;
-			Random(arr[i][j]);
-		}
-	}
-}
-void FillRand(char** arr, const int m, const int n)
-{
-	for (int i = 0; i < m; i++)
-	{
-		for (int j = 0; j < n; j++)
-		{
-			//arr[i][j] = char(rand() % 100)/10;
-			Random(arr[i][j]);
-		}
-	}
-}
+
 
 template<typename T>
 void Print(T arr[], const int n)
