@@ -464,7 +464,7 @@ template<typename T>
 void pop_col_front(T**& arr, const int m, int& n)
 {
 	T** buffer = new T* [--n]{};
-	for (int i = 1; i < m; i++)
+	for (int i = 0; i < m; i++)
 	{
 	   buffer[i] = arr[i];
 	}
